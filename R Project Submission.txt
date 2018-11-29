@@ -1,0 +1,31 @@
+# Q1
+agg_ages = aggregate(data1$AGE,by=list(AGE=data1$AGE),length)
+agg_ages
+
+# Q2
+agg_aprdsg <-aggregate(LOS~(APRDRG),data1,sum)
+agg_aprdsg
+agg_totchg = aggregate(TOTCHG~(APRDRG),data1,sum)
+agg_totchg
+
+# Q4
+group_hsc <- aggregate(TOTCHG~(AGE+FEMALE),data1,sum)
+group_hsc[order(group_hsc$AGE,group_hsc$FEMALE,group_hsc$TOTCHG),]
+
+
+# Q5
+LOS_IM = lm(LOS~AGE+FEMALE+RACE,data1)
+summary(LOS_IM)
+
+# Q6
+
+LOS_IM = lm(TOTCHG~AGE+FEMALE+RACE+APRDRG+TOTCHG+LOS,data1)
+LOS_IM
+#summary(LOS_IM)
+
+https://github.com/git-lfs/git-lfs/issues/1465
+https://github.com/git-tips/tips#show-changes-using-common-diff-tools
+http://nbviewer.jupyter.org/github/jmportilla/pycon-pandas-tutorial/blob/master/All.ipynb
+https://github.com/ipython/ipython/blob/master/.editorconfig
+http://timstaley.co.uk/posts/making-git-and-jupyter-notebooks-play-nice/
+https://stackoverflow.com/questions/18734739/using-ipython-notebooks-under-version-control
